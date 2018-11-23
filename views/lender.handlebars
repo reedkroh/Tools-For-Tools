@@ -1,55 +1,44 @@
+<!--PAGE AFTER CLICKING lend a tool button. SUBMIT FORM FOR LENDER-->
+
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <br>
-        <h2>We will actually use this form below on the "lend a tool" page</h2>
-        <h2>this will be our Home Page with 2 buttons "need a tool" and "lend a tool"</h2>
+        <h2>Lend a Tool!</h2>
 
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Example Tool</label>
+            <label for="example-text">Tool</label>
             <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Tool">
           </div>
 
           <div class="form-group">    <!--change to a drop down selection of the category column-->
-            <label for="example-category">Example Category</label>
+            <label for="example-category">Category</label>
             <input type="text" id="example-category" class="form-control" aria-describedby="example-category" placeholder="Enter Example Category">
           </div>
           
           <div class="form-group">
-            <label for="example-description">Example Description</label>
+            <label for="example-description">Description</label>
             <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="example-price">Example Price</label>
+            <label for="example-price">Price</label>
             <textarea class="form-control" id="example-price" aria-describedby="example-price" placeholder="Enter Example Price"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="example-quantity">Example Description</label>
+            <label for="example-quantity">Description</label>
             <textarea class="form-control" id="example-quantity" aria-describedby="example-quantity" placeholder="Enter Example Quantity"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="example-owner">Example Owner</label>
+            <label for="example-owner">Owner</label>
             <textarea class="form-control" id="example-owner" aria-describedby="example-owner" placeholder="Enter Example Owner"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button id="submit" class="btn btn-primary float-right">Submit Your Tool</button>
         </form>
-
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.tool}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
 
       </div>
     </div>
