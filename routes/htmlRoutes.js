@@ -1,12 +1,12 @@
-var db = require("../models");
+var db = require("../models");      
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
+      res.render("index", {   //index refers to the handlebars
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbExamples    //examples is the table name
       });
     });
   });

@@ -4,6 +4,11 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+var $exampleCategory = $("#example-category");
+var $examplePrice = $("#example-price");
+var $exampleQuantity = $("#example-quantity");
+var $exampleOwner = $("#example-owner");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -12,7 +17,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/examples",      //creates this api/examples route
       data: JSON.stringify(example)
     });
   },
@@ -34,11 +39,11 @@ var API = {
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+      var $a = $("<a>")   //link of specific example
+        .text(example.tool)  //uses title
+        .attr("href", "/example/" + example.id);  //link address with id 
 
-      var $li = $("<li>")
+      var $li = $("<li>") //list of examples
         .attr({
           class: "list-group-item",
           "data-id": example.id
@@ -54,8 +59,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $exampleList.empty();   //empty out when done
+    $exampleList.append($examples); //append emptied list to reset var
   });
 };
 
@@ -65,12 +70,16 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    tool: $exampleText.val().trim(),   //add title to variable
+    category: $exampleCategory.val().trim(),
+    description: $exampleDescription.val().trim(),
+    price: $examplePrice.val().trim(),
+    quantity: $exampleQuantity.val().trim(),
+    owner: $exampleOwner.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(example.tool && example.description && example.category && example.price && example.quantity && example.owner)) {
+    alert("You must enter an example tool, description and category!");
     return;
   }
 
@@ -78,8 +87,13 @@ var handleFormSubmit = function(event) {
     refreshExamples();
   });
 
-  $exampleText.val("");
+  $exampleText.val("");     //empties
   $exampleDescription.val("");
+  $exampleCategory.val("");
+
+  $examplePrice.val("");
+  $exampleQuantity.val("");
+  $exampleOwner.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
