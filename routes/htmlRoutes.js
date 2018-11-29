@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
+  app.get("/tool/:id", function(req, res) {
     db.ToolSeq.findOne({ where: { id: req.params.id } }).then(function(
       dbOneTool
     ) {
