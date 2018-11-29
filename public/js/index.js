@@ -1,13 +1,14 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $toolInput = $("#tool-input");
+var $descriptionInput = $("#tool-description");
+var $categoryInput = $("#tool-category");
+var $priceInput = $("#tool-price");
+var $quantityInput = $("#tool-quantity");
+var $ownerInput = $("#tool-owner");
 
-var $exampleCategory = $("#example-category");
-var $examplePrice = $("#example-price");
-var $exampleQuantity = $("#example-quantity");
-var $exampleOwner = $("#example-owner");
+var $submitBtn = $("#submit");
+var $toolsList = $("#tools-list");
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -17,19 +18,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",             //POST places in database????
-      url: "api/examples",      //Posts to this api/examples route
+      url: "api/tools",      //Posts to this api/examples route
       data: JSON.stringify(oneTool)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",    //GET all examples
+      url: "api/tools",    //GET all examples
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,      //delete example with this id
+      url: "api/tools/" + id,      //delete example with this id
       type: "DELETE"
     });
   }
@@ -41,7 +42,7 @@ var refreshExamples = function() {
     var $allToolsDisplay = data.map(function(oneTool) { //allToolsDisplay is all the tools from the db
       var $a = $("<a>")   //link of specific example
         .text(oneTool.tool)  //uses title
-        .attr("href", "/example/" + oneTool.id);  //link address with id 
+        .attr("href", "/tool/" + oneTool.id);  //link address with id to html 
 
       var $li = $("<li>") //list of examples
         .attr({
@@ -59,8 +60,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();   //empty out when done
-    $exampleList.append($allToolsDisplay); //append emptied list to reset var
+    $toolsList.empty();   //empty out when done
+    $toolsList.append($allToolsDisplay); //append emptied list to reset var
   });
 };
 
@@ -70,12 +71,12 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var oneTool = {
-    tool: $exampleText.val().trim(),   //add inputed tool to variable tool
-    category: $exampleCategory.val().trim(),
-    description: $exampleDescription.val().trim(),
-    price: $examplePrice.val().trim(),
-    quantity: $exampleQuantity.val().trim(),
-    owner: $exampleOwner.val().trim()
+    tool: $toolInput.val().trim(),   //add inputed tool to variable tool
+    category: $categoryInput.val().trim(),
+    description: $descriptionInput.val().trim(),
+    price: $priceInput.val().trim(),
+    quantity: $quantityInput.val().trim(),
+    owner: $ownerInput.val().trim()
   };
 
   if (!(oneTool.tool && oneTool.description && oneTool.category && oneTool.price && oneTool.quantity && oneTool.owner)) {
@@ -87,13 +88,13 @@ var handleFormSubmit = function(event) {
     refreshExamples();
   });
 
-  $exampleText.val("");     //empties
-  $exampleDescription.val("");
-  $exampleCategory.val("");
+  $toolInput.val("");     //empties
+  $descriptionInput.val("");
+  $categoryInput.val("");
 
-  $examplePrice.val("");
-  $exampleQuantity.val("");
-  $exampleOwner.val("");
+  $priceInput.val("");
+  $quantityInput.val("");
+  $ownerInput.val("");
 };
 
 // handleDeleteBtnClick is called when an oneTool's delete button is clicked
@@ -110,4 +111,4 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$toolsList.on("click", ".delete", handleDeleteBtnClick);      //.delete is in the class of the delete button
