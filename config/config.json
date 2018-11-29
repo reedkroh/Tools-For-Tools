@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "yourPassword",
-    "database": "your_database_nameDB", 
+    "password": "Picori235",
+    "database": "tools_example_2db", 
     "host": "localhost",
     "dialect": "mysql"
   },
