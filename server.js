@@ -5,8 +5,8 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var passport = require("passport");
-var session = require("express-session");
+// var passport = require("passport");
+// var session = require("express-session");
 var PORT = process.env.PORT || 3000;
 
 // Middleware
@@ -15,11 +15,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Passport
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(
+//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -41,6 +41,10 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "tools_example_2db") { //CHANGED
   syncOptions.force = true;
 }
+
+// app.get("/", function(req, res) {
+//   res.send("Welcome to Passport with Sequelize");
+// });
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {

@@ -1,5 +1,26 @@
-module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
+module.exports = function(sequelize, Sequelize) {
+  var User = sequelize.define("user", {
+    // id: {
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    //   type: Sequelize.STRING
+    // },
+
+    // owner: {
+    //   type: Sequelize.STRING,
+    //   notEmpty: true
+    // },
+
+    // password: {
+    //   type: Sequelize.STRING,
+    //   allowNull: false
+    // },
+
+    // status: {
+    //   type: Sequelize.ENUM("active", "inactive"),
+    //   defaultValue: "active"
+    // },
+
     tool: DataTypes.STRING,
     category: DataTypes.STRING,
     description: DataTypes.TEXT,
@@ -7,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     quantity: DataTypes.INTEGER,
     owner: DataTypes.STRING
   });
-  return Example;
+  return User;
 };
 
 
