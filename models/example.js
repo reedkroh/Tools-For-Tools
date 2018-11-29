@@ -1,26 +1,5 @@
-module.exports = function(sequelize, Sequelize) {
-  var User = sequelize.define("user", {
-    // id: {
-    //   autoIncrement: true,
-    //   primaryKey: true,
-    //   type: Sequelize.STRING
-    // },
-
-    // owner: {
-    //   type: Sequelize.STRING,
-    //   notEmpty: true
-    // },
-
-    // password: {
-    //   type: Sequelize.STRING,
-    //   allowNull: false
-    // },
-
-    // status: {
-    //   type: Sequelize.ENUM("active", "inactive"),
-    //   defaultValue: "active"
-    // },
-
+module.exports = function(sequelize, DataTypes) {
+  var ToolSeq = sequelize.define("ToolSeq", {
     tool: DataTypes.STRING,
     category: DataTypes.STRING,
     description: DataTypes.TEXT,
@@ -28,14 +7,14 @@ module.exports = function(sequelize, Sequelize) {
     quantity: DataTypes.INTEGER,
     owner: DataTypes.STRING
   });
-  return User;
+  return ToolSeq;
 };
 
 
 
 
 
-//category?? maybe I can use unique names?
-//title = tool
+//Example is name of the variable for the table being created
 
-//create price, quantity, owner
+//For some reason it adds an s to ToolSeq   "ToolSeqs" in the database
+//Which is why the table says examples instead of example

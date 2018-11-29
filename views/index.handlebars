@@ -30,7 +30,7 @@
           </div>
 
           <div class="form-group">
-            <label for="example-quantity">Example Description</label>
+            <label for="example-quantity">Example Quantity</label>
             <textarea class="form-control" id="example-quantity" aria-describedby="example-quantity" placeholder="Enter Example Quantity"></textarea>
           </div>
 
@@ -43,9 +43,9 @@
 
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
-          {{#each examples}}
+          {{#each allTools}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.tool}}</a>
+            <a href="example/{{this.id}}">{{this.tool}}</a> <!--links to the route-->
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
