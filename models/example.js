@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
+  var ToolSeq = sequelize.define("ToolSeq", {
     tool: DataTypes.STRING,
     category: DataTypes.STRING,
     description: DataTypes.TEXT,
@@ -7,14 +7,14 @@ module.exports = function(sequelize, DataTypes) {
     quantity: DataTypes.INTEGER,
     owner: DataTypes.STRING
   });
-  return Example;
+  return ToolSeq;
 };
 
 
 
 
 
-//category?? maybe I can use unique names?
-//title = tool
+//Example is name of the variable for the table being created
 
-//create price, quantity, owner
+//For some reason it adds an s to ToolSeq   "ToolSeqs" in the database
+//Which is why the table says examples instead of example

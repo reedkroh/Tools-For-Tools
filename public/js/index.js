@@ -11,25 +11,25 @@ var $exampleOwner = $("#example-owner");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function(oneTool) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
-      type: "POST",
-      url: "api/examples",      //creates this api/examples route
-      data: JSON.stringify(example)
+      type: "POST",             //POST places in database????
+      url: "api/examples",      //Posts to this api/examples route
+      data: JSON.stringify(oneTool)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/examples",    //GET all examples
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/examples/" + id,      //delete example with this id
       type: "DELETE"
     });
   }
@@ -38,15 +38,15 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+    var $allToolsDisplay = data.map(function(oneTool) { //allToolsDisplay is all the tools from the db
       var $a = $("<a>")   //link of specific example
-        .text(example.tool)  //uses title
-        .attr("href", "/example/" + example.id);  //link address with id 
+        .text(oneTool.tool)  //uses title
+        .attr("href", "/example/" + oneTool.id);  //link address with id 
 
       var $li = $("<li>") //list of examples
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": oneTool.id
         })
         .append($a);
 
@@ -60,7 +60,7 @@ var refreshExamples = function() {
     });
 
     $exampleList.empty();   //empty out when done
-    $exampleList.append($examples); //append emptied list to reset var
+    $exampleList.append($allToolsDisplay); //append emptied list to reset var
   });
 };
 
@@ -69,8 +69,8 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    tool: $exampleText.val().trim(),   //add title to variable
+  var oneTool = {
+    tool: $exampleText.val().trim(),   //add inputed tool to variable tool
     category: $exampleCategory.val().trim(),
     description: $exampleDescription.val().trim(),
     price: $examplePrice.val().trim(),
@@ -78,12 +78,12 @@ var handleFormSubmit = function(event) {
     owner: $exampleOwner.val().trim()
   };
 
-  if (!(example.tool && example.description && example.category && example.price && example.quantity && example.owner)) {
+  if (!(oneTool.tool && oneTool.description && oneTool.category && oneTool.price && oneTool.quantity && oneTool.owner)) {
     alert("You must enter an example tool, description and category!");
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(oneTool).then(function() {
     refreshExamples();
   });
 
@@ -96,7 +96,7 @@ var handleFormSubmit = function(event) {
   $exampleOwner.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
+// handleDeleteBtnClick is called when an oneTool's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
