@@ -1,32 +1,35 @@
-<!--CARD DISPLAYING TOOL INFORMATION AND A PURCHASE BUTTON-->
-
+<!--PAGE when you click on specific example link-->
+<!--NEED TO replicate example.handlebars into tool.handlebars.   AND have its route connected like how this one is connected-->
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Tool Card</h5>
+          <h5 class="card-title">Purchase Tool Card</h5>
           <p>
-            <strong>ID</strong>: {{example.id}}</p>
+            <strong>ID</strong>: {{oneTool.id}}</p>
           <p>
           <p>
-            <strong>Tool</strong>: {{example.tool}}</p>
+            <strong>Tool</strong>: {{oneTool.tool}}</p>
           <p>
-            <strong>Category</strong>: {{example.category}}</p>
+            <strong>Category</strong>: {{oneTool.category}}</p>
           <p>
-            <strong>Description:</strong> {{example.description}}</p>
+            <strong>Description:</strong> {{oneTool.description}}</p>
 
           <p>
-            <strong>Price:</strong> {{example.price}}</p>
+            <strong>Price:</strong> {{oneTool.price}}</p>
           <p>
-            <strong>Quantity:</strong> {{example.quantity}}</p>
+            <strong>Quantity:</strong> {{oneTool.quantity}}</p>
           <p>
-            <strong>Owner:</strong> {{example.owner}}</p>
+            <strong>Owner:</strong> {{oneTool.owner}}</p>
 
-            <a href="/">← Cancel Purchase</a>
+            <a href="/">← Cancel</a>
+            <!-- <button class="btn btn-danger float-right delete">X</button> -->
+            <button class="btn btn-danger float-right">Purchase</button> <!--add to class or id "purchase"-->
+            <!--FOR THIS BUTTONS FUNCTIONALITY, WHEN PURCHASE CLICKED: WE UPDATE THE QUANTITY-->
+            <!--AND IF QUANTITY HITS 0 IT EXECUTES DELETE-->
 
-      <!--  submit button creates a receipt (card or prompt)   -->
-            <button id="submit" class="btn btn-primary float-right">Purchase Tool</button>
+
         </div>
       </div>
     </div>
