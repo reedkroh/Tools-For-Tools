@@ -5,10 +5,9 @@ CREATE DATABASE test_example_db;
 DROP DATABASE IF EXISTS tools_exampledb;
 CREATE DATABASE tools_exampledb;
 
---use to figure out if need to create columns in database first or can you update new columns to previous databse
+DROP DATABASE IF EXISTS tools_example_2db;
 CREATE DATABASE tools_example_2db;
-USE DATABASE tools_example_2db;
---MAYBE DROPPING RESETS DATABASE AND ALLOWS FOR ADDING MORE UNIQUE COLUMNS 
+--DROPPING RESETS DATABASE AND ALLOWS FOR ADDING MORE UNIQUE COLUMNS 
 
 
 
