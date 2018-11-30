@@ -16,7 +16,7 @@ module.exports = function(app) {
     db.ToolSeq.findOne({ where: { id: req.params.id } }).then(function(
       dbOneTool
     ) {
-      res.render("example", {   //example.handlebars
+      res.render("example", {   //example.handlebars changing to tool.handlebars
         oneTool: dbOneTool
       });
     });
