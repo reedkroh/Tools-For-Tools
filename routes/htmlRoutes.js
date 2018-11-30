@@ -6,7 +6,7 @@ module.exports = function(app) {
     db.ToolSeq.findAll({}).then(function(dbAllTools) {
       res.render("index", {   //index refers to the handlebars
         msg: "Welcome!",
-        allTools: dbAllTools    //allTools refers to all the tools in the database?
+        allTools: dbAllTools    //allTools refers to all the tools in the database and API
       });
     });
   });
@@ -16,7 +16,7 @@ module.exports = function(app) {
     db.ToolSeq.findOne({ where: { id: req.params.id } }).then(function(
       dbOneTool
     ) {
-      res.render("example", {   //example.handlebars changing to tool.handlebars
+      res.render("tool", {   //example.handlebars changing to tool.handlebars
         oneTool: dbOneTool
       });
     });

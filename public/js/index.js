@@ -80,7 +80,7 @@ var handleFormSubmit = function(event) {
   };
 
   if (!(oneTool.tool && oneTool.description && oneTool.category && oneTool.price && oneTool.quantity && oneTool.owner)) {
-    alert("You must enter an example tool, description and category!");
+    alert("You must enter information in all fields!");
     return;
   }
 
@@ -98,7 +98,7 @@ var handleFormSubmit = function(event) {
 };
 
 // handleDeleteBtnClick is called when an oneTool's delete button is clicked
-// Remove the example from the db and refresh the list
+// Remove the tool from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
