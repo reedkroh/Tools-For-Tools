@@ -25,7 +25,7 @@ module.exports = function(app) {
   });
 
   //  Need to update tool by id
-  app.update("/api/tools/:id", function(req, res) {
+  app.put("/api/tools/:id", function(req, res) {
     db.ToolSeq.destroy({ where: { id: req.params.id } }).then(function(
       dbOneTool
     ) {
