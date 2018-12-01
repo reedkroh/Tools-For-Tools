@@ -121,9 +121,10 @@ var handleDeleteBtnClick = function() {
 
 var handleRentItemClick = function() {
   var idToDelete = $(this).data("id");
-  console.log(idToDelete)
+  // console.log(idToDelete)
   API.deleteTool(idToDelete).then(function() {
-    refreshTools();
+    window.location.replace("/tools");
+    // refreshTools();
   });
 };
 
