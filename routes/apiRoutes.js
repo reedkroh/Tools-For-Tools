@@ -17,6 +17,7 @@ module.exports = function(app) {
 
   // Delete an tool by id
   app.delete("/api/tools/:id", function(req, res) {
+    console.log(req.params);
     db.ToolSeq.destroy({ where: { id: req.params.id } }).then(function(
       dbOneTool
     ) {
@@ -24,16 +25,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-  //  Need to update tool by id
-  app.put("/api/tools/:id", function(req, res) {
-    db.ToolSeq.destroy({ where: { id: req.params.id } }).then(function(
-      dbOneTool
-    ) {
-      res.json(dbOneTool);
-    });
-  });
-=======
   //  NEED to update tool by id
   //app.put("/api/tools", function(req, res) {
   //  db.ToolSeq.update({
@@ -46,6 +37,5 @@ module.exports = function(app) {
   //    res.json(dbOneTool);
   //  });
   //});
->>>>>>> 26b76e5deb0fa7b5ba4934833301ecd93451308b
 
 };
