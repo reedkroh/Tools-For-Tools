@@ -24,13 +24,17 @@ module.exports = function(app) {
     });
   });
 
-  //  Need to update tool by id
-  app.update("/api/tools/:id", function(req, res) {
-    db.ToolSeq.destroy({ where: { id: req.params.id } }).then(function(
-      dbOneTool
-    ) {
-      res.json(dbOneTool);
-    });
-  });
+  //  NEED to update tool by id
+  //app.put("/api/tools", function(req, res) {
+  //  db.ToolSeq.update({
+  //    quantity: req.body.quantity
+  //  }, { 
+  //    where: { 
+  //      id: req.body.id 
+  //    } 
+  //  }).then(function(dbOneTool) {
+  //    res.json(dbOneTool);
+  //  });
+  //});
 
 };
