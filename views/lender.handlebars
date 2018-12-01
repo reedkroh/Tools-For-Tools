@@ -1,44 +1,61 @@
+<!--PAGE AFTER CLICKING lend a tool button. SUBMIT FORM FOR LENDER-->
+
+<header id="masthead">
+ <div class="container">
+   <nav>
+     <img src="/images/logo.png" class="logoheader" alt="logoheader">
+     <a class="active" href="/" class="home">HOME</a>
+     <a href="tools" class="rent">RENT</a>
+     <a href="lender" class="lend">LEND</a>
+     <a href="/#aboutUs" class="about">ABOUT US</a>
+     <a href="/#callDave" class="callDave">NEED ADVICE? - CALL DAVE</a>
+   </nav>
+ </div>
+</header>
+
 <div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
+ <div class="container">
+   <div class="row">
+     <div class="col-8 offset-2">
+       <h1>{{msg}}</h1>
+       <h2>Lend a Tool!</h2>
 
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="tool-input">Tool</label>
-            <input type="text" id="tool-input" class="form-control" aria-describedby="tool-input" placeholder="Enter Example Tool">
-          </div>
+       <form class="clearfix mb-4" action="POST">
+         <div class="form-group">
+           <label for="tool-input">Tool</label>
+           <input type="text" id="tool-input" class="form-control" aria-describedby="tool-input" placeholder="Enter Example Tool">
+         </div>
 
-          <div class="form-group">    <!--change to a drop down selection of the category column-->
-            <label for="tool-category">Category</label>
-            <input type="text" id="tool-category" class="form-control" aria-describedby="tool-category" placeholder="Enter Example Category">
-          </div>
-          
-          <div class="form-group">
-            <label for="tool-description">Description</label>
-            <textarea class="form-control" id="tool-description" aria-describedby="tool-description" placeholder="Enter Example Description"></textarea>
-          </div>
+         <div class="form-group">    <!--change to a drop down selection of the category column-->
+           <label for="tool-category">Category</label>
+           <input type="text" id="tool-category" class="form-control" aria-describedby="tool-category" placeholder="Enter Example Category">
+         </div>
 
-          <div class="form-group">
-            <label for="tool-price">Price</label>
-            <textarea class="form-control" id="tool-price" aria-describedby="tool-price" placeholder="Enter Example Price"></textarea>
-          </div>
+         <div class="form-group">
+           <label for="tool-description">Description</label>
+           <textarea class="form-control" id="tool-description" aria-describedby="tool-description" placeholder="Enter Example Description"></textarea>
+         </div>
 
-          <div class="form-group">
-            <label for="tool-quantity">Quantity</label>
-            <textarea class="form-control" id="tool-quantity" aria-describedby="tool-quantity" placeholder="Enter Example Quantity"></textarea>
-          </div>
+         <div class="form-group">
+           <label for="tool-price">Price</label>
+           <textarea class="form-control" id="tool-price" aria-describedby="tool-price" placeholder="Enter Example Price"></textarea>
+         </div>
 
-          <div class="form-group">
-            <label for="tool-owner">Owner</label>
-            <textarea class="form-control" id="tool-owner" aria-describedby="tool-owner" placeholder="Enter Example Owner"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit Your Tool</button>
-        </form>
+         <div class="form-group">
+           <label for="tool-quantity">Quantity</label>
+           <textarea class="form-control" id="tool-quantity" aria-describedby="tool-quantity" placeholder="Enter Example Quantity"></textarea>
+         </div>
 
-      </div>
-    </div>
-  </div>
+         <div class="form-group">
+           <label for="tool-owner">Owner</label>
+           <textarea class="form-control" id="tool-owner" aria-describedby="tool-owner" placeholder="Enter Example Owner"></textarea>
+         </div>
+         <button id="submit" class="btn btn-primary float-right">Submit Your Tool</button>
+       </form>
+
+     </div>
+   </div>
+ </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
