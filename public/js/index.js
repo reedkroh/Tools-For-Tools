@@ -123,6 +123,7 @@ var handleRentItemClick = function() {
   var idToDelete = $(this).data("id");
   // console.log(idToDelete)
   API.deleteTool(idToDelete).then(function() {
+    alert("You have rented this tool!")
     window.location.replace("/tools");
     // refreshTools();
   });
