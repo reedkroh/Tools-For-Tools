@@ -7,6 +7,7 @@ Lenders can rent out their tools by filling out a form with the appropriate info
 Renters can view what tools are available to rent and select from the list.  Once it has been rented, the tool will be removed from the database demonstrating that it is no longer available.
 
 Icebox:
+
     -Authentication for users
 
     -Categories of tools
