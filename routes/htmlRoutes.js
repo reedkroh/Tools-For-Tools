@@ -1,4 +1,4 @@
-var db = require("../models");      
+var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
@@ -33,7 +33,7 @@ module.exports = function(app) {
   });
 
   // LOAD items page 
-  app.get("/items", function(req, res) {
+  app.get("/tools", function(req, res) {
     db.ToolSeq.findAll({}).then(function(dbAllTools) {
       res.render("items", {   //items refers to the handlebarss
         allTools: dbAllTools    //allTools refers to all the tools in the database and API

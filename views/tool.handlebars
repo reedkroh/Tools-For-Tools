@@ -5,7 +5,7 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Purchase Tool Card</h5>
+          <h5 id="toolCard" class="card-title">Purchase Tool Card</h5>
           <p>
             <strong>ID</strong>: {{oneTool.id}}</p>
           <p>
@@ -24,7 +24,7 @@
             <strong>Owner:</strong> {{oneTool.owner}}</p>
 
             <a href="/">← Cancel</a>
-            <a href="/items"><button class="btn btn-danger float-right delete">Purchase</button></a>
+            <button id="rentItem" class="btn btn-danger float-right" data-id="{{oneTool.id}}">Purchase</button>
 
 
         <!--WANT TO SET PURCHASE BUTTON TO DELETE CURRENT TOOL-->

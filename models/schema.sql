@@ -28,6 +28,7 @@ CREATE TABLE `tools` (
     `price` DECIMAL(10,2),   --10 before decimal, 2 after
     `quantity` INT(11),     --need to make in sequelize
     `owner` VARCHAR(255),  --may need to link 2 tables to 
+    `password` VARCHAR(100),
     PRIMARY KEY (id)            --sequelize creates
 );
 

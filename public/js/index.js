@@ -8,6 +8,7 @@ var $ownerInput = $("#tool-owner");
 
 var $submitBtn = $("#submit");
 var $toolsList = $("#tools-list");
+var $singleTool = $("#rentItem");
 
 //var $purchaseBtn = $("#purchase-button")    //reference to purchase button
 
@@ -20,19 +21,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",             //POST places in database?
-      url: "api/tools",      //Posts to this api/tools route
+      url: "/api/tools",      //Posts to this api/tools route
       data: JSON.stringify(oneTool)
     });
   },
   getTools: function() {
     return $.ajax({
-      url: "api/tools",    //GET all tools
+      url: "/api/tools",    //GET all tools
       type: "GET"
     });
   },
   deleteTool: function(id) {
     return $.ajax({
-      url: "api/tools/" + id,      //delete example with this id
+      url: "/api/tools/" + id,      //delete example with this id
       type: "DELETE"
     });
   }
@@ -118,6 +119,14 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+var handleRentItemClick = function() {
+  var idToDelete = $(this).data("id");
+  // console.log(idToDelete)
+  API.deleteTool(idToDelete).then(function() {
+    window.location.replace("/tools");
+    // refreshTools();
+  });
+};
 
 // handlePurchaseBtnClick
 //var handlePurchaseBtnClick = function() {
@@ -140,5 +149,6 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $toolsList.on("click", ".delete", handleDeleteBtnClick);      //.delete is in the class of the delete button
+$singleTool.on("click", handleRentItemClick);
 
 //$purchaseBtn.on("click", "#purchase-btn", handlePurchaseBtnClick);

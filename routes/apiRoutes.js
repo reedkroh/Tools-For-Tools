@@ -17,6 +17,7 @@ module.exports = function(app) {
 
   // Delete an tool by id
   app.delete("/api/tools/:id", function(req, res) {
+    console.log(req.params);
     db.ToolSeq.destroy({ where: { id: req.params.id } }).then(function(
       dbOneTool
     ) {
