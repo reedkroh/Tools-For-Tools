@@ -7,16 +7,25 @@ Lenders can rent out their tools by filling out a form with the appropriate info
 Renters can view what tools are available to rent and select from the list.  Once it has been rented, the tool will be removed from the database demonstrating that it is no longer available.
 
 Icebox:
-    Authentication for users
-    Categories of tools
-    Deprecating values of the number of tools available
-    Update method to allow the tool to be available for rent once it has been returned
-    Geolocation to find tools within a radius
+
+    -Authentication for users
+
+    -Categories of tools
+
+    -Deprecating values of the number of tools available
+
+    -Update method to allow the tool to be available for rent once it has been returned
+
+    -Geolocation to find tools within a radius
 
 Collaborators:
+
     Reed Kroh - https://github.com/reedkroh
+
     Joe McKinney - https://github.com/josephfmck
+
     Spencer Knoll - https://github.com/sp-knoll-86
+
 
 
 
