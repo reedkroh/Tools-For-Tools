@@ -9,36 +9,45 @@ var $ownerInput = $("#tool-owner");
 var $submitBtn = $("#submit");
 var $toolsList = $("#tools-list");
 
+//var $purchaseBtn = $("#purchase-button")    //reference to purchase button
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(oneTool) {
+  saveTool: function(oneTool) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
-      type: "POST",             //POST places in database????
-      url: "api/tools",      //Posts to this api/examples route
+      type: "POST",             //POST places in database?
+      url: "api/tools",      //Posts to this api/tools route
       data: JSON.stringify(oneTool)
     });
   },
-  getExamples: function() {
+  getTools: function() {
     return $.ajax({
-      url: "api/tools",    //GET all examples
+      url: "api/tools",    //GET all tools
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteTool: function(id) {
     return $.ajax({
       url: "api/tools/" + id,      //delete example with this id
       type: "DELETE"
     });
   }
+  //,
+  //updateTool: function() {
+  //  return $.ajax({
+  //    url: "api/tools", 
+  //    type: "PUT"
+  //  });
+  //}
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
+// refreshTools gets new examples from the db and repopulates the list
+var refreshTools = function() {
+  API.getTools().then(function(data) {
     var $allToolsDisplay = data.map(function(oneTool) { //allToolsDisplay is all the tools from the db
       var $a = $("<a>")   //link of specific example
         .text(oneTool.tool)  //uses title
@@ -84,8 +93,8 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(oneTool).then(function() {
-    refreshExamples();
+  API.saveTool(oneTool).then(function() {
+    refreshTools();
   });
 
   $toolInput.val("");     //empties
@@ -100,15 +109,36 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an oneTool's delete button is clicked
 // Remove the tool from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
+  var idToDelete = $(this)  //this refers to button being clicked
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteTool(idToDelete).then(function() {
+    refreshTools();
   });
 };
+
+
+// handlePurchaseBtnClick
+//var handlePurchaseBtnClick = function() {
+//  var idToUpdate = $(this)
+//    .parent()
+//    .attr("data-id");
+//
+//  API.updateTool(idToUpdate).then(function() {
+//    refreshTools();
+//  });
+//};
+
+
+//PSUEDO CODE
+//
+//TRYING TO: WHEN PURCHASE BUTTON CLICKED, DELETE EXECUTED
+
+
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $toolsList.on("click", ".delete", handleDeleteBtnClick);      //.delete is in the class of the delete button
+
+//$purchaseBtn.on("click", "#purchase-btn", handlePurchaseBtnClick);
