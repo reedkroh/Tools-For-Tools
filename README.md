@@ -18,6 +18,7 @@ Icebox:
     -Geolocation to find tools within a radius
 
 Collaborators:
+
     Reed Kroh - https://github.com/reedkroh
 
     Joe McKinney - https://github.com/josephfmck
