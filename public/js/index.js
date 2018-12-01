@@ -90,13 +90,12 @@ var handleFormSubmit = function(event) {
     owner: $ownerInput.val().trim()
   };
 
-    console.log(oneTool);
   if (!(oneTool.tool && oneTool.description && oneTool.category && oneTool.price && oneTool.quantity && oneTool.owner)) {
     alert("You must enter information in all fields!");
     return;
   }
 
-  API.saveTool(oneTool).then(function() {
+  return API.saveTool(oneTool).then(function() {
     window.location.replace("/tools");
   });
 
