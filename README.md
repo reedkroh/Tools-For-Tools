@@ -2,7 +2,7 @@ Tools for Tools
 
 This is an app for renting and lending tools.  
 
-Lenders can rent out their tools by filling out a form with the appropriate information including what the tool is, a description of the tool,how much you want to rent it for per day, the number of that tool you have to rent, and the owner of the tool.
+Lenders can rent out their tools by filling out a form with the appropriate information including what the tool is, a description of the tool, how much you want to rent it for per day, the number of that tool you have to rent, and the owner of the tool.
 
 Renters can view what tools are available to rent and select from the list.  Once it has been rented, the tool will be removed from the database demonstrating that it is no longer available.
 
