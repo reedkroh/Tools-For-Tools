@@ -1,10 +1,5 @@
 // Get references to page elements
-var $toolInput = $("#tool-input");
-var $descriptionInput = $("#tool-description");
-var $categoryInput = $("#tool-category");
-var $priceInput = $("#tool-price");
-var $quantityInput = $("#tool-quantity");
-var $ownerInput = $("#tool-owner");
+
 
 var $submitBtn = $("#submit");
 var $toolsList = $("#tools-list");
@@ -79,6 +74,12 @@ var refreshTools = function() {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
+  var $toolInput = $("#tool-input");
+  var $descriptionInput = $("#tool-description");
+  var $categoryInput = $("#tool-category");
+  var $priceInput = $("#tool-price");
+  var $quantityInput = $("#tool-quantity");
+  var $ownerInput = $("#tool-owner");
 
   var oneTool = {
     tool: $toolInput.val().trim(),   //add inputed tool to variable tool
@@ -89,22 +90,17 @@ var handleFormSubmit = function(event) {
     owner: $ownerInput.val().trim()
   };
 
+    console.log(oneTool);
   if (!(oneTool.tool && oneTool.description && oneTool.category && oneTool.price && oneTool.quantity && oneTool.owner)) {
     alert("You must enter information in all fields!");
     return;
   }
 
   API.saveTool(oneTool).then(function() {
-    refreshTools();
+    window.location.replace("/tools");
   });
 
-  $toolInput.val("");     //empties
-  $descriptionInput.val("");
-  $categoryInput.val("");
 
-  $priceInput.val("");
-  $quantityInput.val("");
-  $ownerInput.val("");
 };
 
 // handleDeleteBtnClick is called when an oneTool's delete button is clicked

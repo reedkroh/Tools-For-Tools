@@ -1,59 +1,45 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <br>
-        <h2>We will actually use this form below on the "lend a tool" page</h2>
-        <h2>this will be our Home Page with 2 buttons "need a tool" and "lend a tool"</h2>
+<section class="welcome">
+ <img src="/images/T4Twelcome.png" class="welcome" alt="welcome to T4T">
+</section>
 
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="tool-input">Tool</label>
-            <input type="text" id="tool-input" class="form-control" aria-describedby="tool-input" placeholder="Enter Example Tool">
-          </div>
+<header id="masthead">
+ <div class="container">
+   <nav>
+     <img src="/images/logo.png" class="logoheader" alt="logoheader">
+     <a class="active" href="/" class="home">HOME</a>
+     <a href="tools" class="rent">RENT</a>
+     <a href="lender" class="lend">LEND</a>
+     <a href="/#aboutUs" class="about">ABOUT US</a>
+     <a href="/#callDave" class="callDave">NEED ADVICE? - CALL DAVE</a>
+   </nav>
+ </div>
+</header>
 
-          <div class="form-group">    <!--change to a drop down selection of the category column-->
-            <label for="tool-category">Category</label>
-            <input type="text" id="tool-category" class="form-control" aria-describedby="tool-category" placeholder="Enter Example Category">
-          </div>
-          
-          <div class="form-group">
-            <label for="tool-description">Description</label>
-            <textarea class="form-control" id="tool-description" aria-describedby="tool-description" placeholder="Enter Example Description"></textarea>
-          </div>
+<section>
+ <img src="/images/engineer.png" class="engineer" alt="engineer">
+</section>
 
-          <div class="form-group">
-            <label for="tool-price">Price</label>
-            <textarea class="form-control" id="tool-price" aria-describedby="tool-price" placeholder="Enter Example Price"></textarea>
-          </div>
+<section id="aboutUs" class="aboutText">
+ <h2>About Us</h2>
+ <p>T4T (Tools for Tools) can be described as a cross between industrial tool rental company United Rentals and
+   CraigsList. Our goal is to help consumers in need of tools that they don't want or don't need to buy. Either they
+   don't have the money right now to buy it or it's a one-off project.</p>
+ <p>If you are in need of a tool, click on the "RENT" link to find one of the options that we offer.</p>
+ <p>If you have a tool that you are willing to lend out, click on the "LEND" link and we will be in touch with you
+   after you provide some pertinent information.</p>
+ <p>Additionally, if you Need Advice for your project or even just navigating our site, click on the "CALL DAVE"
+   link. You will be able to contact us to get the help you need. Unfortunately, it's not always Dave. We keep him
+   busy.</p>
+</section>
 
-          <div class="form-group">
-            <label for="tool-quantity">Quantity</label>
-            <textarea class="form-control" id="tool-quantity" aria-describedby="tool-quantity" placeholder="Enter Example Quantity"></textarea>
-          </div>
+<section>
+ <img src="/images/callDave.png" id="callDave" class="callDaveImage" alt="call Dave">
+</section>
 
-          <div class="form-group">
-            <label for="tool-owner">Owner</label>
-            <textarea class="form-control" id="tool-owner" aria-describedby="tool-owner" placeholder="Enter Example Owner"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-
-        <h3>Tools:</h3>
-        <ul id="tools-list" class="list-group">
-          {{#each allTools}}      <!--loops through all tools-->
-          <li data-id="{{this.id}}" class="list-group-item">  <!--set data-id to id in the loop.  list-group-item?-->
-            <a href="tool/{{this.id}}">{{this.tool}}</a> <!--links to the route using id in loop, this.tool as name of link-->
-            <button class="btn btn-danger float-right delete">X</button>
-          </li>
-          {{/each}}
-        </ul>
-
-      </div>
-    </div>
-  </div>
-</div>
+<footer>
+ <div class="push">
+   &copy; <img src="/images/logo.png" class="logo" alt="logo"> 2018. All Rights Reserved.
+ </div>
+</footer>
 
 
