@@ -21,7 +21,13 @@
  h2 {
   color: red;
   font-size: 54px;
-  font-family: Phosphate, Arial, Helvetica, sans-serif;
+  font-family: Phosphate, Phosphor, 'Times New Roman', Times, serif;
+ }
+ 
+ h3 {
+  color: red;
+  font-size: 54px;
+  font-family: Phosphate, Phosphor, 'Times New Roman', Times, serif;
  }
  
  /* index page */
@@ -53,6 +59,18 @@
   object-fit: cover;
  }
  
+ /* items page */
+ 
+ .tools-header {
+  margin-left: 17%;
+ }
+ 
+ .list-group-item {
+   margin-top: 80px;
+   margin-left: -105%;
+   margin-right: -150%;
+ }
+ 
  /* header */
  
  header {
@@ -68,7 +86,7 @@
  #masthead {
   width: 100%;
   overflow: auto;
-  font-family: Phosphate, Arial, Helvetica, sans-serif;
+  font-family: Phosphate, Phosphor, 'Times New Roman', Times, serif;
   font-size: 20px;
   text-decoration: none;
  }
@@ -142,13 +160,13 @@
   width: 4%;
  }
  
- @media only screen and (max-width: 980px) {
-  .container {
-    max-width: 768px;
+ @media only screen and (max-width: 500px) {
+  .nav {
+    font-size: 16px;
   }
- }
- @media only screen and (max-width: 768px) {
-  .main-section, .sidebar {
-    max-width: 100%;
+ 
+  .welcome {
+    height: 700px;
+    width:
   }
  }

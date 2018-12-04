@@ -1,28 +1,18 @@
-<!--PAGE when you click on specific example link-->
-<!--NEED TO replicate example.handlebars into tool.handlebars.   AND have its route connected like how this one is connected-->
+<!--PAGE when you click on specific tool link-->
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Purchase Tool Card</h5>
-          <p>
-            <strong>ID</strong>: {{oneTool.id}}</p>
-          <p>
-          <p>
-            <strong>Tool</strong>: {{oneTool.tool}}</p>
-          <p>
-            <strong>Category</strong>: {{oneTool.category}}</p>
+          <h5 class="card-title">{{oneTool.tool}}</h5>
           <p>
             <strong>Description:</strong> {{oneTool.description}}</p>
-
           <p>
             <strong>Price:</strong> {{oneTool.price}}</p>
           <p>
             <strong>Quantity:</strong> {{oneTool.quantity}}</p>
           <p>
             <strong>Owner:</strong> {{oneTool.owner}}</p>
-
             <a href="/">← Cancel</a>
             <button id="rentItem" class="btn btn-danger float-right" data-id="{{oneTool.id}}">Purchase</button>
 

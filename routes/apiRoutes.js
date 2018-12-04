@@ -4,7 +4,7 @@ module.exports = function(app) {
   // Get all tools
   app.get("/api/tools", function(req, res) {
     db.ToolSeq.findAll({}).then(function(dbAllTools) {
-      res.json(dbAllTools); //dbExamples is all examples
+      res.json(dbAllTools); //dbAllTools is all tools
     });
   });
 
