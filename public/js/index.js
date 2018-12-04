@@ -15,7 +15,7 @@ var API = {
       headers: {
         "Content-Type": "application/json"
       },
-      type: "POST",             //POST places in database?
+      type: "POST",             
       url: "/api/tools",      //Posts to this api/tools route
       data: JSON.stringify(oneTool)
     });
@@ -41,7 +41,7 @@ var API = {
   //}
 };
 
-// refreshTools gets new examples from the db and repopulates the list
+// refreshTools gets new tools from the db and repopulates the list
 var refreshTools = function() {
   API.getTools().then(function(data) {
     var $allToolsDisplay = data.map(function(oneTool) { //allToolsDisplay is all the tools from the db
@@ -49,29 +49,28 @@ var refreshTools = function() {
         .text(oneTool.tool)  //uses title
         .attr("href", "/tool/" + oneTool.id);  //link address with id to html 
 
-      var $li = $("<li>") //list of examples
+      var $li = $("<li>") //list of tools
         .attr({
           class: "list-group-item",
           "data-id": oneTool.id
         })
         .append($a);
 
-      var $button = $("<button>")       //delete button added to each item
+      var $button = $("<button>") //delete button added to each item
         .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
+        .text("ｘ")
       $li.append($button);
 
       return $li;
     });
 
-    $toolsList.empty();   //empty out when done
+    $toolsList.empty(); //empty out when done
     $toolsList.append($allToolsDisplay); //append emptied list to reset var
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new tool
+// Save the new tool to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
   var $toolInput = $("#tool-input");
@@ -82,7 +81,7 @@ var handleFormSubmit = function(event) {
   var $ownerInput = $("#tool-owner");
 
   var oneTool = {
-    tool: $toolInput.val().trim(),   //add inputed tool to variable tool
+    tool: $toolInput.val().trim(), //add inputed tool to variable tool
     category: $categoryInput.val().trim(),
     description: $descriptionInput.val().trim(),
     price: $priceInput.val().trim(),
@@ -98,14 +97,12 @@ var handleFormSubmit = function(event) {
   return API.saveTool(oneTool).then(function() {
     window.location.replace("/tools");
   });
-
-
 };
 
 // handleDeleteBtnClick is called when an oneTool's delete button is clicked
 // Remove the tool from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)  //this refers to button being clicked
+  var idToDelete = $(this) //this refers to button being clicked
     .parent()
     .attr("data-id");
 
@@ -136,15 +133,9 @@ var handleRentItemClick = function() {
 //};
 
 
-//PSUEDO CODE
-//
-//TRYING TO: WHEN PURCHASE BUTTON CLICKED, DELETE EXECUTED
-
-
-
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$toolsList.on("click", ".delete", handleDeleteBtnClick);      //.delete is in the class of the delete button
+$toolsList.on("click", ".delete", handleDeleteBtnClick); //.delete is in the class of the delete button
 $singleTool.on("click", handleRentItemClick);
 
 //$purchaseBtn.on("click", "#purchase-btn", handlePurchaseBtnClick);
